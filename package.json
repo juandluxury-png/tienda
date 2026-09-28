@@ -1,0 +1,13 @@
+{
+  "name": "juanluxury",
+  "version": "1.0.0",
+  "description": "Tienda Juan Luxury: tenis, guayos, oro laminado, relojes, platería y prendas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "private": true
+}

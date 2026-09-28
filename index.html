@@ -117,6 +117,9 @@ nav.main a:hover{color:var(--cream);background:var(--plush)}
 .c-oro{background:radial-gradient(circle at 70% 25%,#FFE9A8,transparent 55%),linear-gradient(145deg,#C8912B,#5A3510)}
 .c-pijamas{background:radial-gradient(circle at 30% 25%,#FFD1E3,transparent 55%),linear-gradient(145deg,#D0678F,#5B2344)}
 .c-deportivos{background:radial-gradient(circle at 70% 20%,#9CF5E6,transparent 55%),linear-gradient(145deg,#1F8E83,#123B4A)}
+.c-guayos{background:radial-gradient(circle at 30% 20%,#8DF5A8,transparent 55%),linear-gradient(145deg,#1E7A4B,#10361F)}
+.c-relojes{background:radial-gradient(circle at 70% 25%,#CFE3F5,transparent 55%),linear-gradient(145deg,#4C6B8A,#1B2A3C)}
+.c-plateria{background:radial-gradient(circle at 35% 25%,#F0F4F8,transparent 55%),linear-gradient(145deg,#8E9BAA,#39414D)}
 .c-promociones{background:radial-gradient(circle at 30% 20%,#FFB3D1,transparent 55%),linear-gradient(145deg,#FF4F9A,#6A1245)}
 .c-por-clasificar{background:radial-gradient(circle at 50% 20%,#B89BD9,transparent 55%),linear-gradient(145deg,#5E3F87,#2A1640)}
 
@@ -128,7 +131,7 @@ section{padding-block:clamp(48px,7vw,88px)}
 .sec-head p{color:var(--muted);max-width:44ch;margin:0}
 
 /* categorías */
-.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
 .cat{position:relative;border:0;padding:0;border-radius:var(--r);overflow:hidden;text-align:left;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
 .cat .art{position:absolute;inset:0}
 .cat .art svg.glyph{width:58%;margin-bottom:40px}
@@ -139,7 +142,7 @@ section{padding-block:clamp(48px,7vw,88px)}
 .cat-info{position:relative;padding:14px;background:linear-gradient(transparent,rgba(20,6,24,.85))}
 .cat-info b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.35rem;line-height:1.05}
 .cat-info small{color:var(--cream);opacity:.8}
-@media (max-width:1000px){.cats{grid-template-columns:repeat(3,1fr)}}
+
 @media (max-width:620px){.cats{grid-template-columns:repeat(2,1fr)}.cat{min-height:170px}}
 
 /* drop semanal */
@@ -295,6 +298,20 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
 .pcard .bday{color:var(--fucsia);font-weight:600}
 .pe{background:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:.9rem;width:100%}
 .pe:focus{border-color:var(--gold);outline:none}
+.resenas{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.resena{padding:18px;border-radius:var(--r);background:var(--velvet);border:1px solid var(--line);display:grid;gap:8px;align-content:start;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.resena:hover{transform:perspective(800px) rotateY(-5deg) translateZ(12px)}
+.resena .estrellas{color:var(--gold);letter-spacing:.12em;font-size:1.05rem}
+.resena p{margin:0;line-height:1.5}
+.resena b{font-size:.95rem}
+.resena small{color:var(--muted)}
+.resenas-vacio{grid-column:1/-1;text-align:center;padding:36px 20px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted)}
+.estrellas-pick{display:flex;gap:6px}
+.estrellas-pick button{border:0;background:none;font-size:1.9rem;line-height:1;color:var(--line);padding:0;transition:transform .15s}
+.estrellas-pick button.on{color:var(--gold)}
+.estrellas-pick button:hover{transform:scale(1.15)}
+.promedio{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.promedio b{font-family:var(--display);font-weight:400;font-size:2.2rem;color:var(--gold);line-height:1}
 .panel-note{font-size:.82rem;color:var(--muted);border-left:2px solid var(--gold);padding-left:10px}
 
 /* ---------- overlays ---------- */
@@ -431,6 +448,7 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
       <a href="#catalogo">Catálogo</a>
       <a href="#como-comprar">Cómo comprar</a>
       <a href="#tallas">Tallas</a>
+      <a href="#resenas">Reseñas</a>
       <a href="#preguntas">Preguntas</a>
     </nav>
     <div class="top-actions">
@@ -453,14 +471,14 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow">Tenis · Oro laminado · Conjuntos · Promociones</span>
+        <span class="eyebrow">Tenis · Guayos · Oro laminado · Relojes · Conjuntos</span>
         <h1>Pisa con lujo.<br>Brilla en <span class="lux foil">oro.</span></h1>
-        <p class="lead">Tenis de dama y caballero, oro laminado y prendas para estar cómoda. Referencias nuevas cada semana, con precios y tallas a la vista.</p>
+        <p class="lead">Tenis de dama y caballero, guayos, oro laminado, relojes y prendas para estar cómoda. Referencias nuevas cada semana, con precios y tallas a la vista.</p>
         <div class="cta-row">
           <a class="btn btn-gold" href="#catalogo">Ver catálogo
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <button class="btn btn-pink" data-cat="promociones">Ver promociones</button>
-          <button class="btn btn-ghost" data-bot-open>Ayúdame a elegir</button>
+          <a class="btn btn-ghost" href="#resenas">Ver reseñas</a>
         </div>
         <div class="hero-facts">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Paga con PSE</span>
@@ -564,6 +582,20 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
     </div>
   </section>
 
+  <!-- RESEÑAS -->
+  <section id="resenas">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="eyebrow">Reseñas</span><h2>Lo que dicen <span class="lux foil">nuestros clientes</span></h2></div>
+        <p id="resumenResenas">Opiniones de personas que ya compraron en Juan Luxury.</p>
+      </div>
+      <div id="listaResenas" class="resenas"></div>
+      <div class="cta-row" style="margin-top:20px">
+        <button class="btn btn-gold" id="btnResena">Escribir una reseña</button>
+      </div>
+    </div>
+  </section>
+
   <!-- TALLAS + FAQ -->
   <section id="tallas">
     <div class="wrap two">
@@ -597,28 +629,10 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
   <a class="fab wa" id="fabWa" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>
   </a>
-  <div style="position:relative">
-    <div class="teaser" id="teaser" hidden>¿Te ayudo a encontrar tu talla?</div>
-    <button class="fab bot" id="botBtn" aria-label="Abrir asistente Luxi" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M9 10h.01M12 10h.01M15 10h.01" stroke-width="3" stroke-linecap="round"/></svg>
-    </button>
-  </div>
+  
 </div>
 
-<div class="bot-panel" id="botPanel" hidden role="dialog" aria-label="Asistente Luxi">
-  <div class="bot-head">
-    <div class="avatar">L</div>
-    <div><b>Luxi · Juan Luxury</b><small>● En línea, te paso con un asesor cuando quieras</small></div>
-    <button class="icon-btn" id="botClose" aria-label="Cerrar asistente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-  </div>
-  <div class="msgs" id="msgs" aria-live="polite"></div>
-  <div class="quick" id="quick"></div>
-  <form class="bot-input" id="botForm">
-    <label class="sr" for="botText">Escribe tu mensaje</label>
-    <input id="botText" autocomplete="off" placeholder="Ej: tenis talla 37">
-    <button aria-label="Enviar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
-  </form>
-</div>
+
 
 <div class="scrim" id="scrim"></div>
 
@@ -641,7 +655,8 @@ footer{border-top:1px solid var(--line);padding-block:40px 120px;color:var(--mut
 const CONFIG = {
   whatsapp: "573218354239",          // línea de ventas: asesor, pedidos y Luxi
   whatsappPagos: "573135788480",     // línea asociada a Wompi: comprobantes de pago PSE
-  actualizado: "16 de septiembre de 2026",
+  margen: 1.5,                       // precio de venta = precio de compra x 1.5 (50% de ganancia)
+  actualizado: "25 de septiembre de 2026",
   diaDeActualizacion: 1,             // 0=domingo, 1=lunes … 6=sábado
   envioTexto: "Envíos a toda Colombia",
   envioDetalle: "Despachamos a toda Colombia. El valor y el tiempo del envío te los confirmamos por WhatsApp según tu ciudad.",
@@ -665,7 +680,7 @@ const CONFIG = {
 /* ============================================================================
    PRODUCTOS · se actualiza cada semana
    genero:    dama | caballero | unisex
-   categoria: promociones | tenis | oro | deportivos | pijamas
+   categoria: promociones | tenis | guayos | oro | relojes | plateria | deportivos | pijamas
    tallas:    lista de tallas EU, "todas", o [] si no aplica (oro laminado, talla única)
    tallaTexto: opcional, ej "Talla única"
    colores:   opcional, lista de {nombre, imagen}; el cliente elige uno (opcionNombre: "Color" o "Diseño")
@@ -678,99 +693,168 @@ const CONFIG = {
               cualquiera puede ver el código de la página.
    ========================================================================== */
 let PRODUCTOS = [
-  // ---------- Promociones ----------
-  { id:"camiseta-crop-promo", nombre:"Camiseta crop estampada · piel durazno", marca:"Promo", categoria:"promociones", genero:"dama", precio:20000,
-    tallas:[], tallaTexto:"Talla única", promo:true, destacado:true, opcionNombre:"Diseño", imagen:"fotos/camiseta-betty-boop.jpg",
-    colores:[
-      {nombre:"Betty Boop", imagen:"fotos/camiseta-betty-boop.jpg"},
-      {nombre:"Good Morning", imagen:"fotos/camiseta-good-morning.jpg"},
-      {nombre:"Flower girl", imagen:"fotos/camiseta-flower-girl.jpg"},
-      {nombre:"Todo menos volver a apagarme", imagen:"fotos/camiseta-apagarme.jpg"},
-      {nombre:"Soy capaz, soy fuerte", imagen:"fotos/camiseta-soy-capaz.jpg"},
-      {nombre:"Todos somos reemplazables", imagen:"fotos/camiseta-reemplazables.jpg"},
-      {nombre:"Qué bonito es verte así", imagen:"fotos/camiseta-que-bonito.jpg"} ] },
 
-  // ---------- Conjuntos deportivos ----------
-  { id:"conjunto-jogger", nombre:"Conjunto sudadera en burda + camiseta tela fría", marca:"Set", categoria:"deportivos", genero:"dama", precio:110000,
-    tallas:[], variantesNombre:"Talla", variantes:[{nombre:"Talla única",precio:110000},{nombre:"Talla plus (XL)",precio:120000}], nuevo:true, destacado:true, opcionNombre:"Color", imagen:"fotos/jogger-lila-negra.jpg",
-    colores:[
-      {nombre:"Lila · camiseta negra", imagen:"fotos/jogger-lila-negra.jpg"},
-      {nombre:"Lila · camiseta blanca (letras)", imagen:"fotos/jogger-lila-blanca-letras.jpg"},
-      {nombre:"Lila · camiseta blanca (logo)", imagen:"fotos/jogger-lila-blanca-logo.jpg"},
-      {nombre:"Beige · camiseta negra", imagen:"fotos/jogger-beige-negra.jpg"},
-      {nombre:"Gris · camiseta negra", imagen:"fotos/jogger-gris-negra.jpg"},
-      {nombre:"Palo de rosa · camiseta blanca", imagen:"fotos/jogger-palo-rosa-blanca.jpg"},
-      {nombre:"Negro · camiseta mostaza", imagen:"fotos/jogger-negro-mostaza.jpg"} ] },
-  { id:"conjunto-tokyo", nombre:"Conjunto Tokyo · camiseta + pantalón con botones", marca:"Tokyo", categoria:"deportivos", genero:"dama", precio:110000,
-    tallas:[], variantesNombre:"Talla", variantes:[{nombre:"Talla única",precio:110000},{nombre:"Talla plus (XL)",precio:120000}], nuevo:true, destacado:true, opcionNombre:"Color", imagen:"fotos/tokyo-lila.jpg",
-    colores:[
-      {nombre:"Lila", imagen:"fotos/tokyo-lila.jpg"},
-      {nombre:"Rosado", imagen:"fotos/tokyo-rosado.jpg"},
-      {nombre:"Azul claro", imagen:"fotos/tokyo-azul-claro.jpg"},
-      {nombre:"Café", imagen:"fotos/tokyo-cafe.jpg"} ] },
-  { id:"conjunto-body", nombre:"Conjunto body + pantalón ancho", marca:"Body", categoria:"deportivos", genero:"dama", precio:110000,
-    tallas:[], nuevo:true, opcionNombre:"Color", imagen:"fotos/body-lila.jpg",
-    colores:[
-      {nombre:"Lila · body beige", imagen:"fotos/body-lila.jpg"},
-      {nombre:"Azul claro · body negro", imagen:"fotos/body-azul-claro.jpg"},
-      {nombre:"Negro · body negro", imagen:"fotos/body-negro.jpg"} ] },
-  { id:"conjunto-capota", nombre:"Conjunto chaqueta con capota + jogger", marca:"Capota", categoria:"deportivos", genero:"dama", precio:130000,
-    tallas:[], nuevo:true, destacado:true, opcionNombre:"Color", imagen:"fotos/capota-lila.jpg",
-    colores:[
-      {nombre:"Lila", imagen:"fotos/capota-lila.jpg"},
-      {nombre:"Palo de rosa", imagen:"fotos/capota-palo-rosa.jpg"},
-      {nombre:"Azul", imagen:"fotos/capota-azul.jpg"},
-      {nombre:"Gris", imagen:"fotos/capota-gris.jpg"},
-      {nombre:"Beige", imagen:"fotos/capota-beige.jpg"},
-      {nombre:"Negro", imagen:"fotos/capota-negro.jpg"} ] },
-  { id:"conjunto-short", nombre:"Conjunto short + camiseta", marca:"Set", categoria:"deportivos", genero:"dama", precio:90000,
-    tallas:[], tallaTexto:"Talla única", nuevo:true, destacado:true, opcionNombre:"Color", imagen:"fotos/short-rosado-jdi.jpg",
-    colores:[
-      {nombre:"Rosado · Just Do It", imagen:"fotos/short-rosado-jdi.jpg"},
-      {nombre:"Negro · Just Do It", imagen:"fotos/short-negro-jdi.jpg"},
-      {nombre:"Azul claro · Just Do It", imagen:"fotos/short-azul-claro-jdi.jpg"},
-      {nombre:"Azul claro · corazón", imagen:"fotos/short-azul-claro-corazon.jpg"},
-      {nombre:"Azul oscuro · corazón", imagen:"fotos/short-azul-oscuro-corazon.jpg"},
-      {nombre:"Camel · corazón", imagen:"fotos/short-camel-corazon.jpg"} ] },
+  // ---------- Promociones (1) ----------
+  { id:"camiseta-crop-promo", nombre:"Camiseta crop estampada · piel durazno", marca:"Promo", categoria:"promociones", genero:"dama", precio:15000, tallas:[], tallaTexto:"Talla única", opcionNombre:"Diseño", colores:[{nombre:"Betty Boop",imagen:"fotos/camiseta-betty-boop.jpg"},{nombre:"Good Morning",imagen:"fotos/camiseta-good-morning.jpg"},{nombre:"Flower girl",imagen:"fotos/camiseta-flower-girl.jpg"},{nombre:"Todo menos volver a apagarme",imagen:"fotos/camiseta-apagarme.jpg"},{nombre:"Soy capaz, soy fuerte",imagen:"fotos/camiseta-soy-capaz.jpg"},{nombre:"Todos somos reemplazables",imagen:"fotos/camiseta-reemplazables.jpg"},{nombre:"Qué bonito es verte así",imagen:"fotos/camiseta-que-bonito.jpg"}], promo:true, destacado:true, imagen:"fotos/camiseta-betty-boop.jpg" },
 
-  // ---------- Tenis ----------
-  { id:"karl-dama-nueva", nombre:"Karl Lagerfeld Dama · Negro con pines", marca:"Karl", categoria:"tenis", genero:"dama", precio:180000, tallas:"todas", nuevo:true, destacado:true, imagen:"fotos/karl-dama-nueva.jpg" },
-  { id:"karl-dama", nombre:"Karl Lagerfeld Dama · Negro", marca:"Karl", categoria:"tenis", genero:"dama", precio:180000, tallas:"todas", imagen:"fotos/karl-dama.jpg" },
-  { id:"coach", nombre:"Coach Dama · Negro con velcro", marca:"Coach", categoria:"tenis", genero:"dama", precio:170000, tallas:"todas", imagen:"fotos/coach-velcro.jpg" },
-  { id:"nike-winflo", nombre:"Nike Winflo · Blanco y rosado", marca:"Winflo", categoria:"tenis", genero:"dama", precio:180000, tallas:[36,37,38,39], destacado:true, imagen:"fotos/nike-winflo.jpg" },
-  { id:"nb-9060-beige", nombre:"New Balance 9060 · Beige", marca:"9060", categoria:"tenis", genero:"dama", precio:190000, tallas:[37,38,39,40], imagen:"fotos/nb-9060-beige.jpg" },
-  { id:"nb-9060-gris", nombre:"New Balance 9060 · Gris y rosa", marca:"9060", categoria:"tenis", genero:"dama", precio:190000, tallas:[36,37,38,39], destacado:true, imagen:"fotos/nb-9060-gris-rosa.jpg" },
-  { id:"onitsuka-crema", nombre:"Onitsuka Tiger · Crema y gris", marca:"Tiger", categoria:"tenis", genero:"dama", precio:200000, tallas:[36,39], imagen:"fotos/onitsuka-crema.jpg" },
-  { id:"onitsuka-amarillo", nombre:"Onitsuka Tiger · Amarillo", marca:"Tiger", categoria:"tenis", genero:"dama", precio:200000, tallas:[36,37,38], destacado:true, imagen:"fotos/onitsuka-amarillo.jpg" },
-  { id:"jordan-paris", nombre:"Jordan Retro 1 Paris", marca:"Paris", categoria:"tenis", genero:"dama", precio:160000, tallas:[36,37,38,39], imagen:"fotos/jordan-1-paris.jpg" },
-  { id:"jordan-azul", nombre:"Jordan Retro 1 · Azul cielo", marca:"Retro 1", categoria:"tenis", genero:"dama", precio:160000, tallas:[36,37,38,39], destacado:true, imagen:"fotos/jordan-1-azul.jpg" },
-  { id:"jordan-panda", nombre:"Jordan Retro 1 · Blanco y negro", marca:"Retro 1", categoria:"tenis", genero:"dama", precio:160000, tallas:[36,37,38,39], imagen:"fotos/jordan-1-panda.jpg" },
-  { id:"p6000-beige", nombre:"Nike P6000 · Beige", marca:"P6000", categoria:"tenis", genero:"dama", precio:200000, tallas:[36,37,38], imagen:"fotos/p6000-beige.jpg" },
-  { id:"p6000-plateado", nombre:"Nike P6000 · Plateado", marca:"P6000", categoria:"tenis", genero:"dama", precio:200000, tallas:[36,37,40], destacado:true, imagen:"fotos/p6000-plateado.jpg" },
+  // ---------- Tenis (27) ----------
+  { id:"karl-dama-nueva", nombre:"Karl Lagerfeld Dama · Negro con pines", marca:"Karl", categoria:"tenis", genero:"dama", precio:135000, tallas:"todas", nuevo:true, destacado:true, imagen:"fotos/karl-dama-nueva.jpg" },
+  { id:"karl-dama", nombre:"Karl Lagerfeld Dama · Negro", marca:"Karl", categoria:"tenis", genero:"dama", precio:135000, tallas:"todas", imagen:"fotos/karl-dama.jpg" },
+  { id:"coach", nombre:"Coach Dama · Negro con velcro", marca:"Coach", categoria:"tenis", genero:"dama", precio:127500, tallas:"todas", imagen:"fotos/coach-velcro.jpg" },
+  { id:"nike-winflo", nombre:"Nike Winflo · Blanco y rosado", marca:"Winflo", categoria:"tenis", genero:"dama", precio:135000, tallas:[36,37,38,39], destacado:true, imagen:"fotos/nike-winflo.jpg" },
+  { id:"nb-9060-beige", nombre:"New Balance 9060 · Beige", marca:"9060", categoria:"tenis", genero:"dama", precio:142500, tallas:[37,38,39,40], imagen:"fotos/nb-9060-beige.jpg" },
+  { id:"nb-9060-gris", nombre:"New Balance 9060 · Gris y rosa", marca:"9060", categoria:"tenis", genero:"dama", precio:142500, tallas:[36,37,38,39], destacado:true, imagen:"fotos/nb-9060-gris-rosa.jpg" },
+  { id:"onitsuka-crema", nombre:"Onitsuka Tiger · Crema y gris", marca:"Tiger", categoria:"tenis", genero:"dama", precio:150000, tallas:[36,39], imagen:"fotos/onitsuka-crema.jpg" },
+  { id:"onitsuka-amarillo", nombre:"Onitsuka Tiger · Amarillo", marca:"Tiger", categoria:"tenis", genero:"dama", precio:150000, tallas:[36,37,38], destacado:true, imagen:"fotos/onitsuka-amarillo.jpg" },
+  { id:"jordan-paris", nombre:"Jordan Retro 1 Paris", marca:"Paris", categoria:"tenis", genero:"dama", precio:120000, tallas:[36,37,38,39], imagen:"fotos/jordan-1-paris.jpg" },
+  { id:"jordan-azul", nombre:"Jordan Retro 1 · Azul cielo", marca:"Retro 1", categoria:"tenis", genero:"dama", precio:120000, tallas:[36,37,38,39], destacado:true, imagen:"fotos/jordan-1-azul.jpg" },
+  { id:"jordan-panda", nombre:"Jordan Retro 1 · Blanco y negro", marca:"Retro 1", categoria:"tenis", genero:"dama", precio:120000, tallas:[36,37,38,39], imagen:"fotos/jordan-1-panda.jpg" },
+  { id:"p6000-beige", nombre:"Nike P6000 · Beige", marca:"P6000", categoria:"tenis", genero:"dama", precio:150000, tallas:[36,37,38], imagen:"fotos/p6000-beige.jpg" },
+  { id:"p6000-plateado", nombre:"Nike P6000 · Plateado", marca:"P6000", categoria:"tenis", genero:"dama", precio:150000, tallas:[36,37,40], destacado:true, imagen:"fotos/p6000-plateado.jpg" },
+  { id:"lecoq-jazy", nombre:"Le Coq Sportif Jazy", marca:"Jazy", categoria:"tenis", genero:"caballero", precio:142500, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/lecoq-jazy-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/lecoq-jazy-2.jpg"},{nombre:"Modelo 3",imagen:"fotos/lecoq-jazy-3.jpg"},{nombre:"Modelo 4",imagen:"fotos/lecoq-jazy-4.jpg"}], nuevo:true, destacado:true, imagen:"fotos/lecoq-jazy-1.jpg" },
+  { id:"hugo-parkour", nombre:"Hugo Boss Parkour", marca:"Parkour", categoria:"tenis", genero:"caballero", precio:142500, tallas:[40], nuevo:true, imagen:"fotos/hugo-parkour-1.jpg" },
+  { id:"nike-mind", nombre:"Nike Mind", marca:"Mind", categoria:"tenis", genero:"caballero", precio:112500, tallas:[40,41,42,43], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/nike-mind-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/nike-mind-2.jpg"},{nombre:"Modelo 3",imagen:"fotos/nike-mind-3.jpg"}], nuevo:true, destacado:true, imagen:"fotos/nike-mind-1.jpg" },
+  { id:"onitsuka-caballero", nombre:"Onitsuka Tiger Caballero", marca:"Tiger", categoria:"tenis", genero:"caballero", precio:135000, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/onitsuka-caballero-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/onitsuka-caballero-2.jpg"},{nombre:"Modelo 3",imagen:"fotos/onitsuka-caballero-3.jpg"}], nuevo:true, imagen:"fotos/onitsuka-caballero-1.jpg" },
+  { id:"puma-suede", nombre:"Puma Suede", marca:"Suede", categoria:"tenis", genero:"caballero", precio:120000, tallas:[40,41,42], nuevo:true, imagen:"fotos/puma-suede-1.jpg" },
+  { id:"asics-kinsei", nombre:"Asics Kinsei Gel", marca:"Kinsei", categoria:"tenis", genero:"caballero", precio:150000, tallas:[40,42,43,45], nuevo:true, destacado:true, imagen:"fotos/asics-kinsei-1.jpg" },
+  { id:"hugo-boss-caballero", nombre:"Hugo Boss Caballero", marca:"Hugo", categoria:"tenis", genero:"caballero", precio:135000, tallas:"todas", opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/hugo-boss-caballero-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/hugo-boss-caballero-2.jpg"}], nuevo:true, imagen:"fotos/hugo-boss-caballero-1.jpg" },
+  { id:"louis-vuitton-caballero", nombre:"Louis Vuitton Caballero", marca:"LV", categoria:"tenis", genero:"caballero", precio:135000, tallas:"todas", nuevo:true, imagen:"fotos/louis-vuitton-caballero-1.jpg" },
+  { id:"jordan-40", nombre:"Jordan 40", marca:"Jordan", categoria:"tenis", genero:"caballero", precio:150000, tallas:[41,42], nuevo:true, imagen:"fotos/jordan-40-1.jpg" },
+  { id:"on-cloud", nombre:"On Cloud", marca:"Cloud", categoria:"tenis", genero:"caballero", precio:142500, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/on-cloud-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/on-cloud-2.jpg"}], nuevo:true, destacado:true, imagen:"fotos/on-cloud-1.jpg" },
+  { id:"reebok", nombre:"Reebok Dama y Caballero", marca:"Reebok", categoria:"tenis", genero:"unisex", precio:120000, tallas:[36,37,38,39,40,41,42,43,44], nuevo:true, imagen:"fotos/reebok-1.jpg" },
+  { id:"vans", nombre:"Vans Dama y Caballero", marca:"Vans", categoria:"tenis", genero:"unisex", precio:120000, tallas:[36,38,41,42,43,44], nuevo:true, imagen:"fotos/vans-1.jpg" },
+  { id:"puma-club", nombre:"Puma Club Dama", marca:"Club", categoria:"tenis", genero:"dama", precio:112500, tallas:[36,37,38,39], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/puma-club-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/puma-club-2.jpg"}], nuevo:true, imagen:"fotos/puma-club-1.jpg" },
+  { id:"adidas-spezial", nombre:"Adidas Spezial Dama", marca:"Spezial", categoria:"tenis", genero:"dama", precio:127500, tallas:[36,37,38,39], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/adidas-spezial-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/adidas-spezial-2.jpg"}], nuevo:true, destacado:true, imagen:"fotos/adidas-spezial-1.jpg" },
 
-  // ---------- Oro laminado ----------
-  { id:"pulseras-szt-aj", nombre:"Pulseras eslabón y cadena", marca:"Oro", categoria:"oro", genero:"unisex", precio:192000, tallas:[],
-    variantes:[{nombre:"A · Eslabón 19 cm (szt.z)",precio:208000},{nombre:"B · Cadena 18 cm (aj.z)",precio:192000}], imagen:"fotos/pulseras-szt-aj.jpg" },
-  { id:"pulseras-jz-ji", nombre:"Pulseras cadena fina", marca:"Oro", categoria:"oro", genero:"unisex", precio:120000, tallas:[],
-    variantes:[{nombre:"A · 18 cm (ji.z)",precio:120000},{nombre:"B · 20 cm (jz.z)",precio:130000}], imagen:"fotos/pulseras-jz-ji.jpg" },
-  { id:"pulsera-triple-verde", nombre:"Pulsera triple con piedras verdes · 21 cm", marca:"Oro", categoria:"oro", genero:"dama", precio:340000, tallas:[], destacado:true, imagen:"fotos/pulsera-triple-verde.jpg" },
-  { id:"pulseras-circones", nombre:"Pulseras de circones", marca:"Oro", categoria:"oro", genero:"dama", precio:164000, tallas:[],
-    variantes:[{nombre:"A · Con esferas 18 cm (szz.z)",precio:200000},{nombre:"B · Con corazón 18 cm (yu.z)",precio:164000}], destacado:true, imagen:"fotos/pulseras-circones.jpg" },
-  { id:"pulsera-tenis-verde", nombre:"Pulsera tenis verde · 19 cm", marca:"Oro", categoria:"oro", genero:"dama", precio:320000, tallas:[], imagen:"fotos/pulsera-tenis-verde.jpg" },
-  { id:"pulseras-siz-uto", nombre:"Pulseras tejidas · 20 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:300000, tallas:[],
-    variantes:[{nombre:"A · Delgada (siz.z)",precio:300000},{nombre:"B · Gruesa (uto.z)",precio:494000}], imagen:"fotos/pulseras-siz-uto.jpg" },
-  { id:"pulsera-denario", nombre:"Pulsera denario con medalla · 18 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:162000, tallas:[],
-    variantes:[{nombre:"Virgen Milagrosa",precio:162000},{nombre:"San Benito",precio:162000},{nombre:"Virgen de Guadalupe",precio:162000}], imagen:"fotos/pulsera-denario.jpg" },
-  { id:"pulsera-tejida-uii", nombre:"Pulsera tejida ancha · 21 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:510000, tallas:[], imagen:"fotos/pulsera-tejida-uii.jpg" },
-  { id:"pulsera-placa-cruces", nombre:"Pulsera placa con cruces · 19 cm", marca:"Oro", categoria:"oro", genero:"caballero", precio:378000, tallas:[], imagen:"fotos/pulsera-placa-cruces.jpg" },
-  { id:"pulseras-os-szz", nombre:"Pulseras cadena tubular", marca:"Oro", categoria:"oro", genero:"unisex", precio:142000, tallas:[],
-    variantes:[{nombre:"A · Ref. os.z",precio:200000},{nombre:"B · Ref. szz.z",precio:142000}], imagen:"fotos/pulseras-os-szz.jpg" },
+  // ---------- Guayos y tenis guayos (12) ----------
+  { id:"guayo-phantom", nombre:"Guayo Nike Phantom", marca:"Phantom", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/guayo-phantom-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/guayo-phantom-2.jpg"},{nombre:"Modelo 3",imagen:"fotos/guayo-phantom-3.jpg"}], nuevo:true, destacado:true, imagen:"fotos/guayo-phantom-1.jpg" },
+  { id:"guayo-mercurial-mbappe", nombre:"Guayo Nike Mercurial Mbappé · sintética", marca:"Mercurial", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], nuevo:true, destacado:true, imagen:"fotos/guayo-mercurial-mbappe-1.jpg" },
+  { id:"guayo-mercurial-cr7", nombre:"Guayo Nike Mercurial CR7", marca:"Mercurial", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], nuevo:true, destacado:true, imagen:"fotos/guayo-mercurial-cr7-1.jpg" },
+  { id:"guayo-mercurial-vini", nombre:"Guayo Nike Mercurial Vini Jr", marca:"Mercurial", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], nuevo:true, imagen:"fotos/guayo-mercurial-vini-1.jpg" },
+  { id:"guayo-mercurial", nombre:"Guayo Nike Mercurial", marca:"Mercurial", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,43,44], nuevo:true, imagen:"fotos/guayo-mercurial-1.jpg" },
+  { id:"guayo-tiempo", nombre:"Guayo Nike Tiempo", marca:"Tiempo", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/guayo-tiempo-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/guayo-tiempo-2.jpg"}], nuevo:true, imagen:"fotos/guayo-tiempo-1.jpg" },
+  { id:"guayo-predator-kaka", nombre:"Guayo Adidas Predator Kaká · sintética", marca:"Predator", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41], nuevo:true, imagen:"fotos/guayo-predator-kaka-1.jpg" },
+  { id:"guayo-predator-zizou", nombre:"Guayo Adidas Predator Zizou · sintética", marca:"Predator", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,44], nuevo:true, imagen:"fotos/guayo-predator-zizou-1.jpg" },
+  { id:"guayo-predator", nombre:"Guayo Adidas Predator", marca:"Predator", categoria:"guayos", genero:"caballero", precio:172500, tallas:[42,43], nuevo:true, imagen:"fotos/guayo-predator-1.jpg" },
+  { id:"guayo-predator-lv", nombre:"Guayo Adidas Predator x LV", marca:"Predator", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], nuevo:true, destacado:true, imagen:"fotos/guayo-predator-lv-1.jpg" },
+  { id:"guayo-f50-messi", nombre:"Guayo Adidas F50 Messi", marca:"F50", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], opcionNombre:"Modelo", colores:[{nombre:"Modelo 1",imagen:"fotos/guayo-f50-messi-1.jpg"},{nombre:"Modelo 2",imagen:"fotos/guayo-f50-messi-2.jpg"},{nombre:"Modelo 3",imagen:"fotos/guayo-f50-messi-3.jpg"}], nuevo:true, destacado:true, imagen:"fotos/guayo-f50-messi-1.jpg" },
+  { id:"guayo-f50", nombre:"Guayo Adidas F50", marca:"F50", categoria:"guayos", genero:"caballero", precio:172500, tallas:[40,41,42,43,44], nuevo:true, imagen:"fotos/guayo-f50-1.jpg" },
+
+  // ---------- Oro laminado (17) ----------
+  { id:"pulseras-szt-aj", nombre:"Pulseras eslabón y cadena", marca:"Oro", categoria:"oro", genero:"unisex", precio:144000, tallas:[], variantes:[{nombre:"A · Eslabón 19 cm (szt.z)",precio:156000},{nombre:"B · Cadena 18 cm (aj.z)",precio:144000}], imagen:"fotos/pulseras-szt-aj.jpg" },
+  { id:"pulseras-jz-ji", nombre:"Pulseras cadena fina", marca:"Oro", categoria:"oro", genero:"unisex", precio:90000, tallas:[], variantes:[{nombre:"A · 18 cm (ji.z)",precio:90000},{nombre:"B · 20 cm (jz.z)",precio:97500}], imagen:"fotos/pulseras-jz-ji.jpg" },
+  { id:"pulsera-triple-verde", nombre:"Pulsera triple con piedras verdes · 21 cm", marca:"Oro", categoria:"oro", genero:"dama", precio:255000, tallas:[], destacado:true, imagen:"fotos/pulsera-triple-verde.jpg" },
+  { id:"pulseras-circones", nombre:"Pulseras de circones", marca:"Oro", categoria:"oro", genero:"dama", precio:123000, tallas:[], variantes:[{nombre:"A · Con esferas 18 cm (szz.z)",precio:150000},{nombre:"B · Con corazón 18 cm (yu.z)",precio:123000}], destacado:true, imagen:"fotos/pulseras-circones.jpg" },
+  { id:"pulsera-tenis-verde", nombre:"Pulsera tenis verde · 19 cm", marca:"Oro", categoria:"oro", genero:"dama", precio:240000, tallas:[], imagen:"fotos/pulsera-tenis-verde.jpg" },
+  { id:"pulseras-siz-uto", nombre:"Pulseras tejidas · 20 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:225000, tallas:[], variantes:[{nombre:"A · Delgada (siz.z)",precio:225000},{nombre:"B · Gruesa (uto.z)",precio:370500}], imagen:"fotos/pulseras-siz-uto.jpg" },
+  { id:"pulsera-denario", nombre:"Pulsera denario con medalla · 18 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:121500, tallas:[], variantes:[{nombre:"Virgen Milagrosa",precio:121500},{nombre:"San Benito",precio:121500},{nombre:"Virgen de Guadalupe",precio:121500}], imagen:"fotos/pulsera-denario.jpg" },
+  { id:"pulsera-tejida-uii", nombre:"Pulsera tejida ancha · 21 cm", marca:"Oro", categoria:"oro", genero:"unisex", precio:382500, tallas:[], imagen:"fotos/pulsera-tejida-uii.jpg" },
+  { id:"pulsera-placa-cruces", nombre:"Pulsera placa con cruces · 19 cm", marca:"Oro", categoria:"oro", genero:"caballero", precio:283500, tallas:[], imagen:"fotos/pulsera-placa-cruces.jpg" },
+  { id:"pulseras-os-szz", nombre:"Pulseras cadena tubular", marca:"Oro", categoria:"oro", genero:"unisex", precio:106500, tallas:[], variantes:[{nombre:"A · Ref. os.z",precio:150000},{nombre:"B · Ref. szz.z",precio:106500}], imagen:"fotos/pulseras-os-szz.jpg" },
+  { id:"pulsera-tejida-oro-01", nombre:"Pulsera tejida en oro laminado · modelo 01", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:76500, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-1.jpg" },
+  { id:"pulsera-tejida-oro-02", nombre:"Pulsera tejida en oro laminado · modelo 02", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:81000, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-2.jpg" },
+  { id:"pulsera-tejida-oro-03", nombre:"Pulsera tejida en oro laminado · modelo 03", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:147000, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-3.jpg" },
+  { id:"pulsera-tejida-oro-04", nombre:"Pulsera tejida en oro laminado · modelo 04", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:90000, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-4.jpg" },
+  { id:"pulsera-tejida-oro-05", nombre:"Pulsera tejida en oro laminado · modelo 05", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:47250, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-5.jpg" },
+  { id:"pulsera-tejida-oro-06", nombre:"Pulsera tejida en oro laminado · modelo 06", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:63000, tallas:[], nuevo:true, imagen:"fotos/pulsera-tejida-oro-6.jpg" },
+  { id:"pulsera-tejida-oro-ab", nombre:"Pulseras tejidas en oro laminado · dúo", marca:"Pulsera", categoria:"oro", genero:"unisex", precio:120000, tallas:[], variantes:[{nombre:"A · negra",precio:120000},{nombre:"B · roja",precio:127500}], nuevo:true, imagen:"fotos/pulsera-tejida-oro-ab.jpg" },
+
+  // ---------- Relojes (1) ----------
+  { id:"reloj-curren-dama", nombre:"Reloj Curren Dama · acero", marca:"Curren", categoria:"relojes", genero:"dama", precio:129000, tallas:[], tallaTexto:"Talla única", opcionNombre:"Diseño", colores:[{nombre:"Diseño 01",imagen:"fotos/reloj-curren-1.jpg"},{nombre:"Diseño 02",imagen:"fotos/reloj-curren-2.jpg"},{nombre:"Diseño 03",imagen:"fotos/reloj-curren-3.jpg"},{nombre:"Diseño 04",imagen:"fotos/reloj-curren-4.jpg"},{nombre:"Diseño 05",imagen:"fotos/reloj-curren-5.jpg"},{nombre:"Diseño 06",imagen:"fotos/reloj-curren-6.jpg"},{nombre:"Diseño 07",imagen:"fotos/reloj-curren-7.jpg"},{nombre:"Diseño 08",imagen:"fotos/reloj-curren-8.jpg"},{nombre:"Diseño 09",imagen:"fotos/reloj-curren-9.jpg"},{nombre:"Diseño 10",imagen:"fotos/reloj-curren-10.jpg"},{nombre:"Diseño 11",imagen:"fotos/reloj-curren-11.jpg"},{nombre:"Diseño 12",imagen:"fotos/reloj-curren-12.jpg"},{nombre:"Diseño 13",imagen:"fotos/reloj-curren-13.jpg"},{nombre:"Diseño 14",imagen:"fotos/reloj-curren-14.jpg"},{nombre:"Diseño 15",imagen:"fotos/reloj-curren-15.jpg"},{nombre:"Diseño 16",imagen:"fotos/reloj-curren-16.jpg"},{nombre:"Diseño 17",imagen:"fotos/reloj-curren-17.jpg"},{nombre:"Diseño 18",imagen:"fotos/reloj-curren-18.jpg"},{nombre:"Diseño 19",imagen:"fotos/reloj-curren-19.jpg"}], nuevo:true, destacado:true, imagen:"fotos/reloj-curren-1.jpg" },
+
+  // ---------- Rodio y platería (59) ----------
+  { id:"candonga-rodio-01", nombre:"Candongas en rodio · modelo 01", marca:"Candongas", categoria:"plateria", genero:"dama", precio:6000, tallas:[], nuevo:true, destacado:true, imagen:"fotos/candonga-rodio-1.jpg" },
+  { id:"candonga-rodio-02", nombre:"Candongas en rodio · modelo 02", marca:"Candongas", categoria:"plateria", genero:"dama", precio:12000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-2.jpg" },
+  { id:"candonga-rodio-03", nombre:"Candongas en rodio · modelo 03", marca:"Candongas", categoria:"plateria", genero:"dama", precio:10500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-3.jpg" },
+  { id:"candonga-rodio-04", nombre:"Candongas en rodio · modelo 04", marca:"Candongas", categoria:"plateria", genero:"dama", precio:6000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-4.jpg" },
+  { id:"candonga-rodio-05", nombre:"Candongas en rodio · modelo 05", marca:"Candongas", categoria:"plateria", genero:"dama", precio:8250, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-5.jpg" },
+  { id:"candonga-rodio-06", nombre:"Candongas en rodio · modelo 06", marca:"Candongas", categoria:"plateria", genero:"dama", precio:12000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-6.jpg" },
+  { id:"candonga-rodio-07", nombre:"Candongas en rodio · modelo 07", marca:"Candongas", categoria:"plateria", genero:"dama", precio:18000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-7.jpg" },
+  { id:"candonga-rodio-08", nombre:"Candongas en rodio · modelo 08", marca:"Candongas", categoria:"plateria", genero:"dama", precio:12750, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-8.jpg" },
+  { id:"candonga-rodio-09", nombre:"Candongas en rodio · modelo 09", marca:"Candongas", categoria:"plateria", genero:"dama", precio:16500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-9.jpg" },
+  { id:"candonga-rodio-10", nombre:"Candongas en rodio · modelo 10", marca:"Candongas", categoria:"plateria", genero:"dama", precio:6000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-10.jpg" },
+  { id:"candonga-rodio-11", nombre:"Candongas en rodio · modelo 11", marca:"Candongas", categoria:"plateria", genero:"dama", precio:10500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-11.jpg" },
+  { id:"candonga-rodio-12", nombre:"Candongas en rodio · modelo 12", marca:"Candongas", categoria:"plateria", genero:"dama", precio:11250, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-12.jpg" },
+  { id:"candonga-rodio-13", nombre:"Candongas en rodio · modelo 13", marca:"Candongas", categoria:"plateria", genero:"dama", precio:14250, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-13.jpg" },
+  { id:"candonga-rodio-14", nombre:"Candongas en rodio · modelo 14", marca:"Candongas", categoria:"plateria", genero:"dama", precio:6000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-14.jpg" },
+  { id:"candonga-rodio-15", nombre:"Candongas en rodio · modelo 15", marca:"Candongas", categoria:"plateria", genero:"dama", precio:12000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-15.jpg" },
+  { id:"candonga-rodio-16", nombre:"Candongas en rodio · modelo 16", marca:"Candongas", categoria:"plateria", genero:"dama", precio:18000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-16.jpg" },
+  { id:"candonga-rodio-17", nombre:"Candongas en rodio · modelo 17", marca:"Candongas", categoria:"plateria", genero:"dama", precio:12750, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-17.jpg" },
+  { id:"candonga-rodio-18", nombre:"Candongas en rodio · modelo 18", marca:"Candongas", categoria:"plateria", genero:"dama", precio:16500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-18.jpg" },
+  { id:"candonga-rodio-19", nombre:"Candongas en rodio · modelo 19", marca:"Candongas", categoria:"plateria", genero:"dama", precio:6000, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-19.jpg" },
+  { id:"candonga-rodio-20", nombre:"Candongas en rodio · modelo 20", marca:"Candongas", categoria:"plateria", genero:"dama", precio:10500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-20.jpg" },
+  { id:"candonga-rodio-21", nombre:"Candongas en rodio · modelo 21", marca:"Candongas", categoria:"plateria", genero:"dama", precio:10500, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-21.jpg" },
+  { id:"candonga-rodio-22", nombre:"Candongas en rodio · modelo 22", marca:"Candongas", categoria:"plateria", genero:"dama", precio:11250, tallas:[], nuevo:true, imagen:"fotos/candonga-rodio-22.jpg" },
+  { id:"anillo-rodio-01", nombre:"Anillo en rodio · modelo 01", marca:"Anillo", categoria:"plateria", genero:"dama", precio:18000, tallas:[], nuevo:true, destacado:true, imagen:"fotos/anillo-rodio-1.jpg" },
+  { id:"anillo-rodio-02", nombre:"Anillo en rodio · modelo 02", marca:"Anillo", categoria:"plateria", genero:"dama", precio:18000, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-2.jpg" },
+  { id:"anillo-rodio-03", nombre:"Anillo en rodio · modelo 03", marca:"Anillo", categoria:"plateria", genero:"dama", precio:15750, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-3.jpg" },
+  { id:"anillo-rodio-04", nombre:"Anillo en rodio · modelo 04", marca:"Anillo", categoria:"plateria", genero:"dama", precio:15750, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-4.jpg" },
+  { id:"anillo-rodio-05", nombre:"Anillo en rodio · modelo 05", marca:"Anillo", categoria:"plateria", genero:"dama", precio:15750, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-5.jpg" },
+  { id:"anillo-rodio-06", nombre:"Anillo en rodio · modelo 06", marca:"Anillo", categoria:"plateria", genero:"dama", precio:16500, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-6.jpg" },
+  { id:"anillo-rodio-07", nombre:"Anillo en rodio · modelo 07", marca:"Anillo", categoria:"plateria", genero:"dama", precio:13500, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-7.jpg" },
+  { id:"anillo-rodio-08", nombre:"Anillo en rodio · modelo 08", marca:"Anillo", categoria:"plateria", genero:"dama", precio:13500, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-8.jpg" },
+  { id:"anillo-rodio-09", nombre:"Anillo en rodio · modelo 09", marca:"Anillo", categoria:"plateria", genero:"dama", precio:13500, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-9.jpg" },
+  { id:"anillo-rodio-10", nombre:"Anillo en rodio · modelo 10", marca:"Anillo", categoria:"plateria", genero:"dama", precio:13500, tallas:[], nuevo:true, imagen:"fotos/anillo-rodio-10.jpg" },
+  { id:"camandula-plata-01", nombre:"Camándula en plata ley 925 · modelo 01", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:70500, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-1.jpg" },
+  { id:"camandula-plata-02", nombre:"Camándula en plata ley 925 · modelo 02", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:94500, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-2.jpg" },
+  { id:"camandula-plata-03", nombre:"Camándula en plata ley 925 · modelo 03", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:126000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-3.jpg" },
+  { id:"camandula-plata-04", nombre:"Camándula en plata ley 925 · modelo 04", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:177000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-4.jpg" },
+  { id:"camandula-plata-05", nombre:"Camándula en plata ley 925 · modelo 05", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:195000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-5.jpg" },
+  { id:"camandula-plata-06", nombre:"Camándula en plata ley 925 · modelo 06", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:285000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-6.jpg" },
+  { id:"camandula-plata-07", nombre:"Camándula en plata ley 925 · modelo 07", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:690000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-7.jpg" },
+  { id:"camandula-plata-08", nombre:"Camándula en plata ley 925 · modelo 08", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:577500, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-8.jpg" },
+  { id:"camandula-plata-09", nombre:"Camándula en plata ley 925 · modelo 09", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:505500, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-9.jpg" },
+  { id:"camandula-plata-10", nombre:"Camándula en plata ley 925 · modelo 10", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:930000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-10.jpg" },
+  { id:"camandula-plata-11", nombre:"Camándula en plata ley 925 · modelo 11", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:300000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-11.jpg" },
+  { id:"camandula-plata-12", nombre:"Camándula en plata ley 925 · modelo 12", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:363000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-12.jpg" },
+  { id:"camandula-plata-13", nombre:"Camándula en plata ley 925 · modelo 13", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:300000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-13.jpg" },
+  { id:"camandula-plata-14", nombre:"Camándula en plata ley 925 · modelo 14", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:255000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-14.jpg" },
+  { id:"camandula-plata-15", nombre:"Camándula en plata ley 925 · modelo 15", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:202500, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-15.jpg" },
+  { id:"camandula-plata-16", nombre:"Camándula en plata ley 925 · modelo 16", marca:"Camándula", categoria:"plateria", genero:"unisex", precio:180000, tallas:[], nuevo:true, imagen:"fotos/camandula-plata-16.jpg" },
+  { id:"pulsera-plata-01", nombre:"Pulsera en plata ley 925 · modelo 01", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:145500, tallas:[], nuevo:true, destacado:true, imagen:"fotos/pulsera-plata-1.jpg" },
+  { id:"pulsera-plata-02", nombre:"Pulsera en plata ley 925 · modelo 02", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:135000, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-2.jpg" },
+  { id:"pulsera-plata-03", nombre:"Pulsera en plata ley 925 · modelo 03", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:120000, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-3.jpg" },
+  { id:"pulsera-plata-04", nombre:"Pulsera en plata ley 925 · modelo 04", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:108000, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-4.jpg" },
+  { id:"pulsera-plata-05", nombre:"Pulsera en plata ley 925 · modelo 05", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:133500, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-5.jpg" },
+  { id:"pulsera-plata-06", nombre:"Pulsera en plata ley 925 · modelo 06", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:112500, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-6.jpg" },
+  { id:"pulsera-plata-07", nombre:"Pulsera en plata ley 925 · modelo 07", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:151500, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-7.jpg" },
+  { id:"pulsera-plata-08", nombre:"Pulsera en plata ley 925 · modelo 08", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:214500, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-8.jpg" },
+  { id:"pulsera-plata-09", nombre:"Pulsera en plata ley 925 · modelo 09", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:129000, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-9.jpg" },
+  { id:"pulsera-plata-10", nombre:"Pulsera en plata ley 925 · modelo 10", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:130500, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-10.jpg" },
+  { id:"pulsera-plata-11", nombre:"Pulsera en plata ley 925 · modelo 11", marca:"Pulsera", categoria:"plateria", genero:"dama", precio:78000, tallas:[], nuevo:true, imagen:"fotos/pulsera-plata-11.jpg" },
+
+  { id:"pulsera-rodio-01", nombre:"Pulsera en rodio · modelo 01", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:13500, tallas:[], nuevo:true, destacado:true, imagen:"fotos/pulsera-rodio-1.jpg" },
+  { id:"pulsera-rodio-02", nombre:"Pulsera en rodio · modelo 02", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:13500, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-2.jpg" },
+  { id:"pulsera-rodio-03", nombre:"Pulsera en rodio · modelo 03", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:12000, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-3.jpg" },
+  { id:"pulsera-rodio-04", nombre:"Pulsera en rodio · modelo 04", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:24000, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-4.jpg" },
+  { id:"pulsera-rodio-05", nombre:"Pulsera en rodio · modelo 05", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:13500, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-5.jpg" },
+  { id:"pulsera-rodio-06", nombre:"Pulsera en rodio · modelo 06", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:12750, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-6.jpg" },
+  { id:"pulsera-rodio-07", nombre:"Pulsera en rodio · modelo 07", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:12000, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-7.jpg" },
+  { id:"pulsera-rodio-08", nombre:"Pulsera en rodio · modelo 08", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:19500, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-8.jpg" },
+  { id:"pulsera-rodio-09", nombre:"Pulsera en rodio · modelo 09", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:21750, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-9.jpg" },
+  { id:"pulsera-rodio-10", nombre:"Pulsera en rodio · modelo 10", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:21750, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-10.jpg" },
+  { id:"pulsera-rodio-11", nombre:"Pulsera en rodio · modelo 11", marca:"Pulsera", categoria:"plateria", genero:"unisex", precio:19500, tallas:[], nuevo:true, imagen:"fotos/pulsera-rodio-11.jpg" },
+
+  // ---------- Conjuntos deportivos (7) ----------
+  { id:"conjunto-jogger", nombre:"Conjunto sudadera en burda + camiseta tela fría", marca:"Set", categoria:"deportivos", genero:"dama", precio:82500, tallas:[], variantesNombre:"Talla", variantes:[{nombre:"Talla única",precio:82500},{nombre:"Talla plus (XL)",precio:90000}], opcionNombre:"Color", colores:[{nombre:"Lila · camiseta negra",imagen:"fotos/jogger-lila-negra.jpg"},{nombre:"Lila · camiseta blanca (letras)",imagen:"fotos/jogger-lila-blanca-letras.jpg"},{nombre:"Lila · camiseta blanca (logo)",imagen:"fotos/jogger-lila-blanca-logo.jpg"},{nombre:"Beige · camiseta negra",imagen:"fotos/jogger-beige-negra.jpg"},{nombre:"Gris · camiseta negra",imagen:"fotos/jogger-gris-negra.jpg"},{nombre:"Palo de rosa · camiseta blanca",imagen:"fotos/jogger-palo-rosa-blanca.jpg"},{nombre:"Negro · camiseta mostaza",imagen:"fotos/jogger-negro-mostaza.jpg"}], nuevo:true, destacado:true, imagen:"fotos/jogger-lila-negra.jpg" },
+  { id:"conjunto-tokyo", nombre:"Conjunto Tokyo · camiseta + pantalón con botones", marca:"Tokyo", categoria:"deportivos", genero:"dama", precio:82500, tallas:[], variantesNombre:"Talla", variantes:[{nombre:"Talla única",precio:82500},{nombre:"Talla plus (XL)",precio:90000}], opcionNombre:"Color", colores:[{nombre:"Lila",imagen:"fotos/tokyo-lila.jpg"},{nombre:"Rosado",imagen:"fotos/tokyo-rosado.jpg"},{nombre:"Azul claro",imagen:"fotos/tokyo-azul-claro.jpg"},{nombre:"Café",imagen:"fotos/tokyo-cafe.jpg"}], nuevo:true, destacado:true, imagen:"fotos/tokyo-lila.jpg" },
+  { id:"conjunto-body", nombre:"Conjunto body + pantalón ancho", marca:"Body", categoria:"deportivos", genero:"dama", precio:82500, tallas:[], opcionNombre:"Color", colores:[{nombre:"Lila · body beige",imagen:"fotos/body-lila.jpg"},{nombre:"Azul claro · body negro",imagen:"fotos/body-azul-claro.jpg"},{nombre:"Negro · body negro",imagen:"fotos/body-negro.jpg"}], nuevo:true, imagen:"fotos/body-lila.jpg" },
+  { id:"conjunto-capota", nombre:"Conjunto chaqueta con capota + jogger", marca:"Capota", categoria:"deportivos", genero:"dama", precio:97500, tallas:[], opcionNombre:"Color", colores:[{nombre:"Lila",imagen:"fotos/capota-lila.jpg"},{nombre:"Palo de rosa",imagen:"fotos/capota-palo-rosa.jpg"},{nombre:"Azul",imagen:"fotos/capota-azul.jpg"},{nombre:"Gris",imagen:"fotos/capota-gris.jpg"},{nombre:"Beige",imagen:"fotos/capota-beige.jpg"},{nombre:"Negro",imagen:"fotos/capota-negro.jpg"}], nuevo:true, destacado:true, imagen:"fotos/capota-lila.jpg" },
+  { id:"conjunto-short", nombre:"Conjunto short + camiseta", marca:"Set", categoria:"deportivos", genero:"dama", precio:67500, tallas:[], tallaTexto:"Talla única", opcionNombre:"Color", colores:[{nombre:"Rosado · Just Do It",imagen:"fotos/short-rosado-jdi.jpg"},{nombre:"Negro · Just Do It",imagen:"fotos/short-negro-jdi.jpg"},{nombre:"Azul claro · Just Do It",imagen:"fotos/short-azul-claro-jdi.jpg"},{nombre:"Azul claro · corazón",imagen:"fotos/short-azul-claro-corazon.jpg"},{nombre:"Azul oscuro · corazón",imagen:"fotos/short-azul-oscuro-corazon.jpg"},{nombre:"Camel · corazón",imagen:"fotos/short-camel-corazon.jpg"},{nombre:"Rosado",imagen:"fotos/short-camiseta-nuevo-1.jpg"},{nombre:"Beige",imagen:"fotos/short-camiseta-nuevo-2.jpg"},{nombre:"Verde",imagen:"fotos/short-camiseta-nuevo-3.jpg"},{nombre:"Lila",imagen:"fotos/short-camiseta-nuevo-4.jpg"},{nombre:"Rojo",imagen:"fotos/short-camiseta-nuevo-5.jpg"},{nombre:"Negro",imagen:"fotos/short-camiseta-nuevo-6.jpg"}], nuevo:true, destacado:true, imagen:"fotos/short-rosado-jdi.jpg" },
+  { id:"conjunto-chicago-short", nombre:"Conjunto Chicago · camiseta + short", marca:"Chicago", categoria:"deportivos", genero:"dama", precio:82500, tallas:[], tallaTexto:"Talla única", opcionNombre:"Color", colores:[{nombre:"Negro",imagen:"fotos/conjunto-chicago-short-1.jpg"},{nombre:"Rosado",imagen:"fotos/conjunto-chicago-short-2.jpg"},{nombre:"Palo de rosa",imagen:"fotos/conjunto-chicago-short-3.jpg"},{nombre:"Verde",imagen:"fotos/conjunto-chicago-short-4.jpg"},{nombre:"Lila",imagen:"fotos/conjunto-chicago-short-5.jpg"}], nuevo:true, destacado:true, imagen:"fotos/conjunto-chicago-short-1.jpg" },
+  { id:"conjunto-chicago-pantalon", nombre:"Conjunto Chicago · camiseta + pantalón", marca:"Chicago", categoria:"deportivos", genero:"dama", precio:82500, tallas:[], tallaTexto:"Talla única", opcionNombre:"Color", colores:[{nombre:"Café",imagen:"fotos/conjunto-chicago-pantalon-1.jpg"},{nombre:"Negro",imagen:"fotos/conjunto-chicago-pantalon-2.jpg"},{nombre:"Rojo",imagen:"fotos/conjunto-chicago-pantalon-3.jpg"},{nombre:"Rosado",imagen:"fotos/conjunto-chicago-pantalon-4.jpg"}], nuevo:true, imagen:"fotos/conjunto-chicago-pantalon-1.jpg" },
+
+  // ---------- Pijamas (1) ----------
+  { id:"pijama-enteriza", nombre:"Pijama enteriza de tiras", marca:"Pijama", categoria:"pijamas", genero:"dama", precio:22500, tallas:[], tallaTexto:"Talla única", opcionNombre:"Diseño", colores:[{nombre:"Stitch",imagen:"fotos/pijama-enteriza-1.jpg"},{nombre:"Minnie",imagen:"fotos/pijama-enteriza-2.jpg"},{nombre:"Hello Kitty",imagen:"fotos/pijama-enteriza-3.jpg"},{nombre:"Bugs Bunny",imagen:"fotos/pijama-enteriza-4.jpg"},{nombre:"Tigger",imagen:"fotos/pijama-enteriza-5.jpg"},{nombre:"Dumbo",imagen:"fotos/pijama-enteriza-6.jpg"},{nombre:"Stitch flores",imagen:"fotos/pijama-enteriza-7.jpg"},{nombre:"La Dama y el Vagabundo",imagen:"fotos/pijama-enteriza-8.jpg"},{nombre:"Care Bears",imagen:"fotos/pijama-enteriza-9.jpg"},{nombre:"Chip y Dale",imagen:"fotos/pijama-enteriza-10.jpg"}], nuevo:true, destacado:true, imagen:"fotos/pijama-enteriza-1.jpg" },
 ];
 
 const CATEGORIAS = [
   { id:"promociones",    nombre:"Promociones",    plural:"promociones" },
   { id:"tenis",          nombre:"Tenis",          plural:"tenis" },
+  { id:"guayos",         nombre:"Guayos",         plural:"guayos y tenis guayos" },
   { id:"oro",            nombre:"Oro laminado",   plural:"oro laminado" },
+  { id:"relojes",        nombre:"Relojes",        plural:"relojes" },
+  { id:"plateria",       nombre:"Rodio y platería", plural:"rodio y platería" },
   { id:"deportivos",     nombre:"Conjuntos deportivos", plural:"conjuntos deportivos" },
   { id:"pijamas",        nombre:"Pijamas",        plural:"pijamas" },
 ];
@@ -861,6 +945,9 @@ const GLYPHS = {
   pijamas:`<svg class="glyph" viewBox="0 0 160 120" aria-hidden="true"><path d="M52 12h56l30 22-14 20-12-8v62H48V46l-12 8-14-20z" fill="#FFF3E3"/><path d="M68 12c3 10 21 10 24 0" stroke="#FF4F9A" stroke-width="4" fill="none"/><circle cx="68" cy="60" r="5" fill="#FF4F9A"/><circle cx="92" cy="76" r="5" fill="#F2C14E"/><circle cx="70" cy="92" r="5" fill="#F2C14E"/></svg>`,
   deportivos:`<svg class="glyph" viewBox="0 0 160 120" aria-hidden="true"><path d="M56 10h48l6 30-8 10H58l-8-10z" fill="#FFF3E3"/><path d="M58 54h44l6 60H86l-6-40-6 40H52z" fill="#1C0B20" stroke="#FFF3E3" stroke-width="3"/><path d="M58 54h44" stroke="#3FD9C1" stroke-width="6"/></svg>`,
 };
+GLYPHS.guayos = `<svg class="glyph" viewBox="0 0 170 90" aria-hidden="true"><path d="M12 54c0-11 6-20 16-23l22-6c8-2 13-8 18-14l6-7c4-4 10-3 12 3 5 13 18 21 36 24 18 3 28 9 28 20v4c0 5-4 8-9 8H20c-5 0-8-3-8-9z" fill="#FFF3E3"/><path d="M12 62h140v5c0 5-4 8-9 8H20c-5 0-8-3-8-8z" fill="#1E7A4B"/><g fill="#1C0B20"><circle cx="34" cy="80" r="4"/><circle cx="60" cy="80" r="4"/><circle cx="92" cy="80" r="4"/><circle cx="124" cy="80" r="4"/></g><path d="M62 28l10 8M70 22l10 8M78 16l10 8" stroke="#1C0B20" stroke-width="3" stroke-linecap="round"/></svg>`;
+GLYPHS.relojes = `<svg class="glyph" viewBox="0 0 120 150" aria-hidden="true"><rect x="44" y="4" width="32" height="34" rx="8" fill="#CDB4C9"/><rect x="44" y="112" width="32" height="34" rx="8" fill="#CDB4C9"/><circle cx="60" cy="75" r="42" fill="#FFF3E3" stroke="#8E9BAA" stroke-width="6"/><circle cx="60" cy="75" r="32" fill="#1C0B20"/><path d="M60 55v20l14 9" stroke="#F2C14E" stroke-width="5" stroke-linecap="round" fill="none"/></svg>`;
+GLYPHS.plateria = `<svg class="glyph" viewBox="0 0 150 120" aria-hidden="true"><path d="M75 12l16 26 30 6-21 22 5 30-30-14-30 14 5-30-21-22 30-6z" fill="#F0F4F8"/><circle cx="75" cy="86" r="16" fill="none" stroke="#CFE3F5" stroke-width="7"/></svg>`;
 GLYPHS["por-clasificar"] = `<svg class="glyph" viewBox="0 0 160 110" aria-hidden="true"><rect x="36" y="22" width="88" height="70" rx="12" fill="#FFF3E3"/><circle cx="64" cy="48" r="9" fill="#F2C14E"/><path d="M40 86l28-24 18 14 14-10 24 20z" fill="#B89BD9"/></svg>`;
 function artHTML(p, extra = ""){
   const img = p.imagen ? `<img src="${esc(p.imagen)}" alt="${esc(p.nombre)}" loading="lazy">`
@@ -1079,7 +1166,7 @@ function cardHTML(p, i){
     <div class="card-body">
       <span class="kicker">${esc(catName(p.categoria))}${p.genero ? " · " + esc(genName(p.genero)) : ""}</span>
       <h3>${esc(p.nombre)}</h3>
-      ${t.length || p.tallaTexto || nCol ? `<div class="sizes-mini">${p.tallaTexto ? `<span>${esc(p.tallaTexto)}</span>` : p.variantesNombre === "Talla" ? p.variantes.map(v => `<span>${esc(v.nombre.replace(/^Talla (.)/, (m, c) => c.toUpperCase()))}</span>`).join("") : p.tallas === "todas" ? `<span>Todas las tallas</span>` : t.map(s => `<span>${s}</span>`).join("")}${nCol > 1 ? `<span>${nCol} ${(p.opcionNombre || "color").toLowerCase() === "diseño" ? "diseños" : "colores"}</span>` : ""}</div>` : ""}
+      ${t.length || p.tallaTexto || nCol ? `<div class="sizes-mini">${p.tallaTexto ? `<span>${esc(p.tallaTexto)}</span>` : p.variantesNombre === "Talla" ? p.variantes.map(v => `<span>${esc(v.nombre.replace(/^Talla (.)/, (m, c) => c.toUpperCase()))}</span>`).join("") : p.tallas === "todas" ? `<span>Todas las tallas</span>` : t.map(s => `<span>${s}</span>`).join("")}${nCol > 1 ? `<span>${nCol} ${(p.opcionNombre || "color").toLowerCase() + "s"}</span>` : ""}</div>` : ""}
       <div class="price-row">${priceHTML}${priceNote}</div>
       <div class="card-actions">
         <button class="btn btn-gold btn-sm" data-qv="${esc(p.id)}">${needsSize(p) ? "Elegir talla" : nCol > 1 ? `Elegir ${(p.opcionNombre || "color").toLowerCase()}` : (p.variantes ? "Elegir opción" : "Agregar")}</button>
@@ -1456,12 +1543,14 @@ function cabecera(activa){
     <div class="chips">
       <button class="chip ${activa === "informes" ? "on" : ""}" id="tabInf">Informes</button>
       <button class="chip ${activa === "productos" ? "on" : ""}" id="tabProd">Productos</button>
+      <button class="chip ${activa === "resenas" ? "on" : ""}" id="tabRes">Reseñas</button>
       <button class="chip" id="tabSalir">Salir</button>
     </div>`;
 }
 function cablearCabecera(){
   $("#tabInf").onclick = panelInformes;
   $("#tabProd").onclick = panelProductos;
+  $("#tabRes").onclick = panelResenas;
   $("#tabSalir").onclick = () => { sesion.token = null; guardarSesion(); closeAll(); toast("Sesión cerrada"); };
 }
 function cargando(){ openModal(`${X_CERRAR}<div class="form center"><div class="spinner"></div><p class="muted">Consultando la hoja…</p></div>`); }
@@ -1512,7 +1601,7 @@ async function panelInformes(){
 async function panelProductos(){
   const cats = CATEGORIAS.map(c => c.nombre);
   const fila = p => {
-    const compra = Math.round((p.precio || 0) / 2);
+    const compra = Math.round((p.precio || 0) / CONFIG.margen);
     return `<div class="pcard" data-prod="${esc(p.id)}" style="grid-template-columns:52px 1fr;align-items:start">
       <div class="art c-${esc(p.categoria)}" style="width:52px;height:64px;border-radius:8px">${p.imagen ? `<img src="${esc(p.imagen)}" alt="" loading="lazy">` : ""}</div>
       <div style="display:grid;gap:6px">
@@ -1520,7 +1609,7 @@ async function panelProductos(){
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <select class="pe" data-f="categoria" aria-label="Categoría">${cats.map(c => `<option ${catName(p.categoria) === c ? "selected" : ""}>${esc(c)}</option>`).join("")}</select>
           <input class="pe" data-f="compra" type="number" min="0" step="1000" value="${compra}" style="max-width:120px" aria-label="Precio de compra">
-          <span class="muted" style="font-size:.8rem;align-self:center">venta ${money(compra * 2)}</span>
+          <span class="muted" style="font-size:.8rem;align-self:center">venta ${money(Math.round(compra * CONFIG.margen))}</span>
         </div>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <button class="btn btn-gold btn-sm" data-guardar>Guardar</button>
@@ -1531,7 +1620,7 @@ async function panelProductos(){
   };
   openModal(`${X_CERRAR}<div class="panel">
     ${cabecera("productos")}
-    <p class="muted" style="margin:0">Cambia nombre, categoría o precio de compra y toca Guardar: el precio de venta se calcula solo (compra × 2). Para cambios grandes usa el Excel del catálogo.</p>
+    <p class="muted" style="margin:0">Cambia nombre, categoría o precio de compra y toca Guardar: el precio de venta se calcula solo (compra × 1,5). Para cambios grandes usa el Excel del catálogo.</p>
     <div><h3>Agregar producto</h3>
       <form class="form" id="npForm" style="padding:0;gap:8px;margin-top:10px">
         <input id="npNombre" placeholder="Nombre del producto" required style="background:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px">
@@ -1595,6 +1684,39 @@ async function panelProductos(){
       tallas:$("#npTallas").value.trim(), imagen, etiquetas:"nuevo" }, "Producto agregado");
     if (ok) panelProductos();
   });
+}
+
+async function panelResenas(){
+  cargando();
+  const r = await api("informes", { token: sesion.token, conResenas: true });
+  if (r?.sesion === false){ sesion.token = null; guardarSesion(); return panelLogin(r.error); }
+  const lista = r?.informes?.resenas || [];
+  const pend = lista.filter(x => String(x.estado).toUpperCase() !== "PUBLICADA");
+  const pub = lista.filter(x => String(x.estado).toUpperCase() === "PUBLICADA");
+  const tarjeta = (x, i, accionable) => `<div class="pcard" data-res="${i}">
+    <span><b>${esc(x.nombre)} <span style="color:var(--gold)">${estrellas(Number(x.estrellas) || 5)}</span></b>
+      <small>${[x.ciudad, x.producto, x.fecha].filter(Boolean).map(esc).join(" · ")}</small>
+      <small style="color:var(--cream);display:block;margin-top:4px">${esc(x.comentario)}</small></span>
+    <span style="display:grid;gap:6px">${accionable ? `<button class="btn btn-gold btn-sm" data-pub="${esc(x.id)}">Publicar</button>` : ""}
+      <button class="btn btn-ghost btn-sm" data-del="${esc(x.id)}">Borrar</button></span></div>`;
+  openModal(`${X_CERRAR}<div class="panel">
+    ${cabecera("resenas")}
+    <div><h3>Por aprobar (${pend.length})</h3>
+      ${pend.length ? `<div class="plist" style="margin-top:10px">${pend.map((x, i) => tarjeta(x, i, true)).join("")}</div>`
+        : `<p class="muted">No hay reseñas esperando aprobación.</p>`}</div>
+    <div><h3>Publicadas (${pub.length})</h3>
+      ${pub.length ? `<div class="plist" style="margin-top:10px">${pub.map((x, i) => tarjeta(x, i, false)).join("")}</div>`
+        : `<p class="muted">Todavía no has publicado ninguna reseña.</p>`}</div>
+    <p class="panel-note">Las reseñas solo aparecen en la tienda cuando tú las publicas. Ninguna se publica sola.</p>
+  </div>`);
+  cablearCabecera();
+  $("#modalBox").onclick = async e => {
+    const p = e.target.closest("[data-pub]"), d = e.target.closest("[data-del]");
+    if (!p && !d) return;
+    const res = await api("moderarResena", { token: sesion.token, id: (p || d).dataset.pub || (p || d).dataset.del, accion: p ? "publicar" : "borrar" });
+    if (res?.ok){ toast(p ? "Reseña publicada" : "Reseña borrada"); cargarResenas(); panelResenas(); }
+    else toast(res?.error || "No se pudo");
+  };
 }
 
 function panelLocal(){
@@ -1666,98 +1788,9 @@ $("#cartBtn").onclick = openCart;
 $("#scrim").onclick = closeAll;
 document.addEventListener("click", e => { if (e.target.closest("[data-close]")) closeAll(); });
 $("#modal").addEventListener("click", e => { if (e.target === $("#modal")) closeAll(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape"){ closeAll(); toggleBot(false); } });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeAll(); });
 
-/* ---------- Luxi, el asistente ---------- */
-const QUICK = [
-  ["promos","Promociones"],["tenis-dama","Tenis dama"],["tenis-caballero","Tenis caballero"],["oro","Oro laminado"],["prendas","Conjuntos y pijamas"],
-  ["talla","Mi talla"],["envios","Envíos"],["pagos","Pagos y PSE"],["asesor","Hablar con un asesor"]];
-let botStarted = false;
-function toggleBot(open){
-  const panel = $("#botPanel");
-  open = open ?? panel.hidden;
-  panel.hidden = !open; $("#botBtn").setAttribute("aria-expanded", open); $("#teaser").hidden = true;
-  if (open && !botStarted){ botStarted = true;
-    botSay(`¡Hola! Soy <b>Luxi</b>, de Juan Luxury. Te ayudo a encontrar tenis, oro laminado o prendas en tu talla. ¿Qué buscas hoy?`); }
-  if (open) setTimeout(() => $("#botText").focus(), 60);
-}
-function renderQuick(){ $("#quick").innerHTML = QUICK.map(([k,t]) => `<button data-k="${k}">${t}</button>`).join(""); }
-function userSay(t){ $("#msgs").insertAdjacentHTML("beforeend", `<div class="msg u">${esc(t)}</div>`); scrollMsgs(); }
-function botSay(html, delay = 550){
-  const typing = document.createElement("div"); typing.className = "msg b typing"; typing.innerHTML = "<i></i><i></i><i></i>";
-  $("#msgs").appendChild(typing); scrollMsgs();
-  setTimeout(() => { typing.remove(); $("#msgs").insertAdjacentHTML("beforeend", `<div class="msg b">${html}</div>`); scrollMsgs(); }, delay);
-}
-const scrollMsgs = () => { const m = $("#msgs"); m.scrollTop = m.scrollHeight; };
-function miniList(list){
-  return list.slice(0, 4).map(p => `<div class="mini">${artHTML(p)}<span>${esc(p.nombre)}<br><b>${money(minPrice(p))}</b></span><button data-botqv="${esc(p.id)}">Ver</button></div>`).join("")
-    + (list.length > 4 ? `<div style="margin-top:8px"><button class="btn btn-gold btn-sm" data-botall>Ver los ${list.length} en el catálogo</button></div>` : "");
-}
-function goCatalog(patch){ Object.assign(state, {cat:"todas", gen:"todos", talla:null, q:""}, patch); onlyFavs = false; $("#q").value = state.q; syncSeg(); renderCats(); renderGrid(); $("#catalogo").scrollIntoView({behavior:"smooth"}); }
-let botFilter = {};
-function botAnswer(k, text){
-  const wa = (t, label = "Abrir WhatsApp") => `<div style="margin-top:8px"><a class="btn btn-wa btn-sm" target="_blank" rel="noopener" href="${waLink(t)}">${label}</a></div>`;
-  if (k === "tenis-dama" || k === "tenis-caballero"){
-    const g = k.split("-")[1]; botFilter = {cat:"tenis", gen:g};
-    const list = PRODUCTOS.filter(p => p.categoria === "tenis" && (p.genero === g || p.genero === "unisex"));
-    if (!list.length && g === "caballero") return botSay(`Por ahora no tenemos tenis de caballero cargados en la página, pero pronto llegan. Pregúntale a un asesor qué hay disponible:${wa("Hola Juan Luxury, busco tenis de caballero. ¿Qué tienen?", "Preguntar a un asesor")}`);
-    return botSay(list.length ? `Tenemos <b>${list.length}</b> referencias para ${g}. Estas son algunas:${miniList(list)}`
-      : `Esta semana no hay tenis de ${g} en la página, pero pueden llegar pronto.${wa(`Hola, busco tenis de ${g}. ¿Qué tienen?`, "Preguntar a un asesor")}`);
-  }
-  if (k === "promos"){
-    const list = PRODUCTOS.filter(p => p.categoria === "promociones" || p.promo); botFilter = {cat:"promociones"};
-    return botSay(list.length ? `Estas son las promociones de la semana:${miniList(list)}` : `Esta semana no hay promociones activas. ¡Pregunta por lo nuevo!${wa("Hola Juan Luxury, ¿qué promociones tienen?", "Preguntar por WhatsApp")}`);
-  }
-  if (k === "oro" || k === "prendas"){
-    const cats = k === "oro" ? ["oro"] : ["deportivos","pijamas"]; botFilter = {cat:cats[0]};
-    const list = PRODUCTOS.filter(p => cats.includes(p.categoria));
-    const label = k === "oro" ? "oro laminado" : "conjuntos y pijamas";
-    return botSay(list.length ? `Mira lo que hay en ${label}:${miniList(list)}`
-      : `Estamos subiendo las fotos de ${label} esta semana. Un asesor te muestra lo disponible ya mismo:${wa(`Hola Juan Luxury, quiero ver lo que tienen en ${label}.`, "Ver por WhatsApp")}`);
-  }
-  if (k === "talla"){
-    const ts = [...new Set(PRODUCTOS.flatMap(sizesOf))].sort((a,b) => a - b);
-    return botSay(`¿Qué talla usas? Escríbela (ej: <b>37</b>) o toca una:<div class="opts" style="margin-top:8px">${ts.map(t => `<button class="chip size" data-bottalla="${t}">${t}</button>`).join("")}</div>`);
-  }
-  if (k === "envios") return botSay(esc(CONFIG.envioDetalle) + wa("Hola, quiero saber el costo de envío a mi ciudad.", "Consultar envío"));
-  if (k === "pagos") return botSay(`Puedes pagar en línea con <b>Wompi</b> desde el carrito (PSE, Nequi, Bancolombia o tarjeta), o coordinar por WhatsApp con ${CONFIG.mediosDePago.filter(m => m[0] !== "PSE").map(m => m[0]).join(", ")}.`);
-  if (k === "asesor"){
-    const t = lastViewed ? `Hola Juan Luxury, estaba viendo ${lastViewed.nombre} en la página y quiero hablar con un asesor.` : "Hola Juan Luxury, vengo de la página y quiero hablar con un asesor.";
-    return botSay(`¡Claro! Te llevo a WhatsApp con un asesor.${wa(t, "Hablar con un asesor")}`);
-  }
-  // texto libre
-  const s = (text || "").toLowerCase();
-  const num = s.match(/\b(3[5-9]|4[0-4])\b/);
-  if (/whats|asesor|humano|persona|llamar/.test(s)) return botAnswer("asesor");
-  if (/env[ií]o|domicilio|llega|ciudad/.test(s)) return botAnswer("envios");
-  if (/pse|pago|pagar|nequi|daviplata|transfer/.test(s)) return botAnswer("pagos");
-  if (/promo|oferta|descuento|camiseta|crop/.test(s)) return botAnswer("promos");
-  if (/oro|cadena|pulsera|arete|anillo|dije|topo/.test(s) && !num) return botAnswer("oro");
-  if (/pijama|conjunto|deportiv|licra|legging|prenda|ropa/.test(s)) return botAnswer("prendas");
-  const words = s.replace(/\b(tenis|talla|quiero|busco|unos|unas|para|de|la|el|los|las|me|en|hay|tienen|precio)\b/g, " ").split(/\s+/).filter(w => w.length > 2);
-  let list = PRODUCTOS.filter(p => {
-    const hay = `${p.nombre} ${p.marca} ${catName(p.categoria)} ${p.genero}`.toLowerCase();
-    return (!num || sizesOf(p).includes(+num[1])) && (!words.length || words.some(w => hay.includes(w)));
-  });
-  if (/tenis|zapat/.test(s)) list = list.filter(p => p.categoria === "tenis");
-  if (/dama|mujer/.test(s)) list = list.filter(p => p.genero !== "caballero");
-  if (/caballero|hombre/.test(s)) list = list.filter(p => p.genero !== "dama");
-  botFilter = { talla: num ? +num[1] : null, q: words.length && !num ? words[0] : "" };
-  if (list.length && (num || words.length)) return botSay(`Encontré <b>${list.length}</b>${num ? ` en talla ${num[1]}` : ""}:${miniList(list)}`);
-  botSay(`No encontré eso en la página, pero un asesor puede ayudarte ya mismo.${wa(`Hola Juan Luxury, estoy buscando: ${text}`, "Preguntar por WhatsApp")}`);
-}
-$("#botBtn").onclick = () => toggleBot();
-$("#botClose").onclick = () => toggleBot(false);
-$$("[data-bot-open]").forEach(b => b.onclick = () => toggleBot(true));
-$("#quick").addEventListener("click", e => { const b = e.target.closest("[data-k]"); if (!b) return; userSay(b.textContent); botAnswer(b.dataset.k); });
-$("#botForm").addEventListener("submit", e => { e.preventDefault(); const t = $("#botText").value.trim(); if (!t) return; $("#botText").value = ""; userSay(t); botAnswer(null, t); });
-$("#msgs").addEventListener("click", e => {
-  const q = e.target.closest("[data-botqv]"); if (q){ quickView(q.dataset.botqv); return; }
-  const t = e.target.closest("[data-bottalla]"); if (t){ userSay("Talla " + t.dataset.bottalla); botAnswer(null, t.dataset.bottalla); return; }
-  if (e.target.closest("[data-botall]")){ goCatalog(botFilter); toggleBot(false); }
-});
-setTimeout(() => { if ($("#botPanel").hidden && !botStarted) $("#teaser").hidden = false; }, 4500);
-$("#teaser").onclick = () => toggleBot(true);
+
 
 /* ---------- efectos 3D ---------- */
 const motionOK = matchMedia("(prefers-reduced-motion: no-preference)").matches && matchMedia("(pointer: fine)").matches;
@@ -1786,6 +1819,71 @@ if ("IntersectionObserver" in window && matchMedia("(prefers-reduced-motion: no-
   $$(".sec-head, .drop, .step, .table-wrap, #faq").forEach(el => { if (el.getBoundingClientRect().top > innerHeight){ el.classList.add("r3d"); io.observe(el); } });
 }
 
+/* ---------- reseñas ---------- */
+const estrellas = n => "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+let RESENAS = [];
+async function cargarResenas(){
+  const r = await api("resenas");
+  RESENAS = (r?.ok && r.resenas) || [];
+  pintarResenas();
+}
+function pintarResenas(){
+  const cont = $("#listaResenas");
+  if (!RESENAS.length){
+    cont.innerHTML = `<div class="resenas-vacio"><p style="margin:0 0 6px">Todavía no hay reseñas publicadas.</p>
+      <p style="margin:0">Si ya compraste con nosotros, cuéntanos cómo te fue: tu opinión ayuda a quien está decidiendo.</p></div>`;
+    $("#resumenResenas").textContent = "Sé la primera persona en opinar sobre Juan Luxury.";
+    return;
+  }
+  const prom = RESENAS.reduce((t, r) => t + Number(r.estrellas || 0), 0) / RESENAS.length;
+  $("#resumenResenas").innerHTML = `<span class="promedio"><b>${prom.toFixed(1)}</b><span class="estrellas" style="color:var(--gold)">${estrellas(Math.round(prom))}</span>
+    <span class="muted">${RESENAS.length} ${RESENAS.length === 1 ? "reseña" : "reseñas"} de clientes</span></span>`;
+  cont.innerHTML = RESENAS.map(r => `<article class="resena">
+    <span class="estrellas">${estrellas(Number(r.estrellas) || 5)}</span>
+    <p>${esc(r.comentario)}</p>
+    <div><b>${esc(r.nombre || "Cliente")}</b><small>${[r.ciudad, r.producto, r.fecha].filter(Boolean).map(esc).join(" · ")}</small></div>
+  </article>`).join("");
+}
+function formularioResena(){
+  let puntos = 5;
+  openModal(`<button class="icon-btn x" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <form class="form" id="rsForm">
+      <h2>Escribe tu reseña</h2>
+      <p class="muted" style="margin:0">Cuéntanos cómo te fue con el producto, el envío o la atención. La publicamos apenas la revisemos.</p>
+      <div><div class="opt-label">Tu calificación</div>
+        <div class="estrellas-pick" id="rsEstrellas">${[1,2,3,4,5].map(n => `<button type="button" data-n="${n}" class="${n <= 5 ? "on" : ""}" aria-label="${n} estrellas">★</button>`).join("")}</div></div>
+      <div class="f2">
+        <div class="field"><label for="rsNombre">Tu nombre</label><input id="rsNombre" required autocomplete="name"></div>
+        <div class="field"><label for="rsCiudad">Ciudad (opcional)</label><input id="rsCiudad" autocomplete="address-level2"></div>
+      </div>
+      <div class="field"><label for="rsProducto">¿Sobre qué producto? (opcional)</label>
+        <select id="rsProducto"><option value="">La tienda en general</option>${PRODUCTOS.map(p => `<option>${esc(p.nombre)}</option>`).join("")}</select></div>
+      <div class="field"><label for="rsTexto">Tu reseña</label><textarea id="rsTexto" rows="4" required maxlength="600" placeholder="Ej: los tenis llegaron en dos días y la talla quedó perfecta."></textarea></div>
+      <button class="btn btn-gold">Enviar reseña</button>
+    </form>`, true);
+  $("#rsEstrellas").onclick = e => { const b = e.target.closest("[data-n]"); if (!b) return;
+    puntos = +b.dataset.n; $$("#rsEstrellas button").forEach(x => x.classList.toggle("on", +x.dataset.n <= puntos)); };
+  $("#rsForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = $("#rsForm button[class*=btn-gold]"); btn.disabled = true; btn.textContent = "Enviando…";
+    const datos = { nombre:$("#rsNombre").value.trim(), ciudad:$("#rsCiudad").value.trim(),
+      producto:$("#rsProducto").value, comentario:$("#rsTexto").value.trim(), estrellas: puntos };
+    const r = await api("nuevaResena", datos);
+    if (r?.ok){
+      openModal(`<button class="icon-btn x" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <div class="form center"><div class="ok-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12.5l4.5 4.5L19 7"/></svg></div>
+        <h2>¡Gracias!</h2><p class="muted" style="margin:0">Tu reseña queda publicada apenas la revisemos. Nos ayuda muchísimo.</p></div>`, true);
+      return;
+    }
+    const texto = `Hola Juan Luxury, quiero dejar esta reseña:\n${estrellas(puntos)}\n${datos.comentario}\n— ${datos.nombre}${datos.ciudad ? ", " + datos.ciudad : ""}`;
+    openModal(`<button class="icon-btn x" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      <div class="form"><h2>Mándanosla por WhatsApp</h2>
+      <p class="muted" style="margin:0">No pudimos guardar tu reseña en este momento. Envíanosla por WhatsApp y la publicamos nosotros.</p>
+      <button class="btn btn-wa" id="rsWa">Enviar por WhatsApp</button></div>`, true);
+    $("#rsWa").onclick = () => abrirWa(CONFIG.whatsapp, texto);
+  });
+}
+
 /* ---------- cuenta regresiva ---------- */
 function tick(){
   const now = new Date(), next = new Date(now);
@@ -1803,9 +1901,11 @@ function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add(
 
 /* ---------- inicio ---------- */
 function renderAll(){ renderShowcase(); renderCats(); renderGrid(); saveCart(); }
-renderStatic(); renderQuick(); renderAll(); tick(); setInterval(tick, 1000); registrarVista_init();
+renderStatic(); renderAll(); tick(); setInterval(tick, 1000); registrarVista_init();
 function registrarVista_init(){ registrarVisita(); if (location.hash === "#panel") panel(); }
 $("#panelBtn").onclick = panel;
+$("#btnResena").onclick = formularioResena;
+cargarResenas();
 if (CONFIG.wompi.linkDePago || CONFIG.wompi.urlFirma) $("#demoBar").hidden = true;
 loadCatalogo();
 </script>
