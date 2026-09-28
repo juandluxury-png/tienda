@@ -1146,6 +1146,8 @@ function renderSizes(){
   $("#sizeRow").hidden = !avail.size;
   $("#sizeChips").innerHTML = all.map(t => `<button class="chip size ${state.talla === t ? "on" : ""}" data-size="${t}" ${avail.has(t) ? "" : "disabled"}>${t}</button>`).join("");
 }
+const PLURALES = { color:"colores", "diseño":"diseños", modelo:"modelos", talla:"tallas", "opción":"opciones" };
+const plural = n => { const k = String(n || "color").toLowerCase(); return PLURALES[k] || k + "s"; };
 function cardHTML(p, i){
   const t = sizesOf(p);
   const top = topVisto();
@@ -1166,7 +1168,7 @@ function cardHTML(p, i){
     <div class="card-body">
       <span class="kicker">${esc(catName(p.categoria))}${p.genero ? " · " + esc(genName(p.genero)) : ""}</span>
       <h3>${esc(p.nombre)}</h3>
-      ${t.length || p.tallaTexto || nCol ? `<div class="sizes-mini">${p.tallaTexto ? `<span>${esc(p.tallaTexto)}</span>` : p.variantesNombre === "Talla" ? p.variantes.map(v => `<span>${esc(v.nombre.replace(/^Talla (.)/, (m, c) => c.toUpperCase()))}</span>`).join("") : p.tallas === "todas" ? `<span>Todas las tallas</span>` : t.map(s => `<span>${s}</span>`).join("")}${nCol > 1 ? `<span>${nCol} ${(p.opcionNombre || "color").toLowerCase() + "s"}</span>` : ""}</div>` : ""}
+      ${t.length || p.tallaTexto || nCol ? `<div class="sizes-mini">${p.tallaTexto ? `<span>${esc(p.tallaTexto)}</span>` : p.variantesNombre === "Talla" ? p.variantes.map(v => `<span>${esc(v.nombre.replace(/^Talla (.)/, (m, c) => c.toUpperCase()))}</span>`).join("") : p.tallas === "todas" ? `<span>Todas las tallas</span>` : t.map(s => `<span>${s}</span>`).join("")}${nCol > 1 ? `<span>${nCol} ${plural(p.opcionNombre)}</span>` : ""}</div>` : ""}
       <div class="price-row">${priceHTML}${priceNote}</div>
       <div class="card-actions">
         <button class="btn btn-gold btn-sm" data-qv="${esc(p.id)}">${needsSize(p) ? "Elegir talla" : nCol > 1 ? `Elegir ${(p.opcionNombre || "color").toLowerCase()}` : (p.variantes ? "Elegir opción" : "Agregar")}</button>
