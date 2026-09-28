@@ -1588,15 +1588,34 @@ async function panelInformes(){
       <span><b>${esc(p.ref)} · ${esc(p.estado)}</b><small>${esc(p.fecha)} · ${esc(p.cliente || "")} · ${esc(p.productos || "")}</small></span>
       <b style="color:var(--gold)">${money(p.total)}</b></div>`).join("")}</div></div>` : ""}
     <p class="panel-note">Los datos salen de la hoja de Google. El aviso de cumpleaños llega solo al correo todos los días a las 8 a. m.</p>
+    <div><h3>Borrar datos de prueba</h3>
+      <p class="muted" style="margin:6px 0 10px">Deja los contadores en cero. El catálogo y las reseñas no se tocan.</p>
+      <div class="cta-row">
+        <button class="btn btn-ghost btn-sm" data-limpiar="pedidos">Borrar pedidos y ventas</button>
+        <button class="btn btn-ghost btn-sm" data-limpiar="visitas">Borrar visitas y vistas</button>
+        <button class="btn btn-ghost btn-sm" data-limpiar="clientes">Borrar clientes</button>
+        <button class="btn btn-pink btn-sm" data-limpiar="todo">Borrar todo y empezar de cero</button>
+      </div></div>
   </div>`);
   cablearCabecera();
-  $("#modalBox").onclick = e => {
+  $("#modalBox").onclick = async e => {
     const f = e.target.closest("[data-fel]");
     if (f){ const c = i.clientes.filter(c => c.cumple)[+f.dataset.fel];
       abrirWa("57" + String(c.cel).replace(/\D/g, "").slice(-10), felicitacion(c));
       api("marcarFelicitado", { token: sesion.token, celular: c.cel }); return; }
     const w = e.target.closest("[data-esc]");
-    if (w) abrirWa("57" + w.dataset.esc.replace(/\D/g, "").slice(-10), "Hola, te escribimos de Juan Luxury 👋");
+    if (w){ abrirWa("57" + w.dataset.esc.replace(/\D/g, "").slice(-10), "Hola, te escribimos de Juan Luxury 👋"); return; }
+    const l = e.target.closest("[data-limpiar]");
+    if (l){
+      const que = l.dataset.limpiar;
+      const nombres = { pedidos:"los pedidos y el total vendido", visitas:"las visitas y los productos vistos",
+        clientes:"los clientes y sus cumpleaños", todo:"TODOS los registros: pedidos, visitas, vistas y clientes" };
+      if (!confirm("¿Borrar " + nombres[que] + "?\n\nEsto no se puede deshacer. El catálogo y las reseñas quedan intactos.")) return;
+      l.disabled = true; l.textContent = "Borrando…";
+      const r = await api("limpiarPruebas", { token: sesion.token, que });
+      if (r?.ok){ toast("Listo: " + (r.borradas || "sin datos")); DATOS = Object.assign({}, DB0); guardarDatos(); panelInformes(); }
+      else toast(r?.error || "No se pudo borrar");
+    }
   };
 }
 
@@ -1715,7 +1734,7 @@ async function panelResenas(){
   $("#modalBox").onclick = async e => {
     const p = e.target.closest("[data-pub]"), d = e.target.closest("[data-del]");
     if (!p && !d) return;
-    const res = await api("moderarResena", { token: sesion.token, id: (p || d).dataset.pub || (p || d).dataset.del, accion: p ? "publicar" : "borrar" });
+    const res = await api("moderarResena", { token: sesion.token, id: (p || d).dataset.pub || (p || d).dataset.del, operacion: p ? "publicar" : "borrar" });
     if (res?.ok){ toast(p ? "Reseña publicada" : "Reseña borrada"); cargarResenas(); panelResenas(); }
     else toast(res?.error || "No se pudo");
   };
